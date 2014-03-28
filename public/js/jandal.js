@@ -1,0 +1,1 @@
+../../node_modules/jandal/client.js
