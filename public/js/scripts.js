@@ -8,18 +8,23 @@
 
   var template = function (_) {
     return [
-      '<li class="' + _.sender + '">',
-        _.message,
-      '</li>'
+      '<tr class="sender-' + _.senderType + '">',
+        '<td>' + _.sender + '</td>',
+        '<td>' + _.event + '</td>',
+        '<td>' + _.arg1 + '</td>',
+        '<td>' + _.arg2 + '</td>',
+        '<td>' + _.arg3 + '</td>',
+      '</tr>'
     ].join('');
   };
 
   socket.on('message', function(message) {
-    var html = template({
-      sender: 'null',
-      message: message
-    });
+    var html = template(message);
     log.innerHTML += html;
+  });
+
+  socket.on('reset', function () {
+    log.innerHTML = '';
   });
 
 }());

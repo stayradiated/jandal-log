@@ -1,14 +1,5 @@
 body {
-  font-family: "Menlo", "Monaco", "Consolas", "sans-serif";
-
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
+  font-family: "Source Code Pro", "Monaco", "Consolas", "sans-serif";
 }
 
 h1 {
@@ -27,14 +18,29 @@ h1 {
 }
 
 .log {
-  flex: 1;
   padding: 0;
-  margin: 1em;
-  overflow: auto;
-  border: 1px solid #ccc;
+  margin: 0;
+  width: 100%;
 }
 
-.log li {
-  line-height: 2em;
-  padding: 0 1em;
+.log th {
+  text-align: left;
+}
+
+.log tr {
+  font-size: 0.8em;
+  line-height: 2.4em;
+  padding: 0;
+}
+
+.log td, .log th {
+  padding: 0 0.9em;
+}
+
+.sender-server {
+  background: #eee;
+}
+
+.sender-client {
+
 }

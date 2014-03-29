@@ -2,15 +2,19 @@
   "name": "Jandal-Log",
   "version": "0.0.1",
   "description": "Get a realtime log of messages passed through Jandal",
-  "main": "index.js",
+  "main": "sandal.js",
   "dependencies": {
     "express": "^3.5.1",
     "jandal": "^0.0.14",
-    "sockjs": "^0.3.8"
+    "sockjs": "^0.3.8",
+    "log_": "^0.0.2"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "jandal-log": "bin/server.js"
   },
   "repository": {
     "type": "git",
