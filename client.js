@@ -9,6 +9,9 @@ var Client = function (fn) {
   });
 };
 
+var PREFIX = new Buffer([29]);
+var MESSAGE = new Buffer('message');
+var GROUP = new Buffer('group');
 var SEPERATOR = new Buffer([31]);
 var EOL = new Buffer([30]);
 
@@ -18,8 +21,14 @@ Client.prototype.write = function (sender, message) {
 
   sender = new Buffer(sender);
   message = new Buffer(message);
-  var bytes = Buffer.concat([sender, SEPERATOR, message, EOL]);
+  var bytes = Buffer.concat([MESSAGE, PREFIX, sender, SEPERATOR, message, EOL]);
 
+  this.connection.write(bytes);
+};
+
+Client.prototype.group = function (name) {
+  name = new Buffer(name);
+  var bytes = Buffer.concat([GROUP, PREFIX, name, EOL]);
   this.connection.write(bytes);
 };
 

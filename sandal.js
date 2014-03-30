@@ -121,6 +121,10 @@ inherits(Sandal, Jandal);
 
 Sandal.handler = handler;
 
+Sandal.prototype.group = function (name) {
+  logger.group(name);
+};
+
 Sandal.prototype.end = function end () {
   this.clientSocket.end();
   this.serverSocket.end();

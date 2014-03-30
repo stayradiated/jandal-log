@@ -37,10 +37,18 @@ h1 {
   padding: 0 0.9em;
 }
 
-.sender-server {
+.log .group {
+  background: #27ae60;
+  color: #fff;
+  font-weight: 700;
+  border-top: 2.4em solid #fff;
+}
+
+
+.log .sender-server {
   background: #eee;
 }
 
-.sender-client {
+.log .sender-client {
 
 }

@@ -18,14 +18,34 @@ var server = net.createServer(function (connection) {
     var eol;
 
     while ((eol = indexOf(bytes, 30)) > -1) {
+
       var line = bytes.slice(0, eol);
       bytes = bytes.slice(eol + 1);
 
-      var split = indexOf(line, 31);
-      var sender = line.slice(0, split).toString();
-      var message = line.slice(split + 1).toString();
+      var prefix = indexOf(line, 29);
+      var type = line.slice(0, prefix).toString();
+      line = line.slice(prefix + 1);
 
-      webServer.write(sender, message);
+      switch (type) {
+
+        case 'message':
+
+          var split = indexOf(line, 31);
+          var sender = line.slice(0, split).toString();
+          var message = line.slice(split + 1).toString();
+
+          webServer.message(sender, message);
+          break;
+
+        case 'group':
+
+          var name = line.toString();
+
+          webServer.group(name);
+          break;
+
+      }
+
     } 
 
   });

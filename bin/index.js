@@ -35,7 +35,11 @@ module.exports = {
     Jandal.all.emit('reset');
   },
 
-  write: function (sender, message) {
+  group: function (name) {
+    Jandal.all.emit('group', name);
+  },
+
+  message: function (sender, message) {
 
     message = messages.parse(message);
     if (! message) return;
