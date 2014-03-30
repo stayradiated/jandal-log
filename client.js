@@ -5,7 +5,7 @@ var PORT = 8800;
 var Client = function (fn) {
   this.connection = net.connect({ port: PORT }, fn);
   this.connection.on('error', function (err) {
-    console.log('Jandal-Log', err);
+    console.log('Jandal-Log - Could not connect to server');
   });
 };
 
@@ -16,7 +16,6 @@ var SEPERATOR = new Buffer([31]);
 var EOL = new Buffer([30]);
 
 Client.prototype.write = function (sender, message) {
-
   if (! this.connection.writable) return;
 
   sender = new Buffer(sender);
@@ -27,6 +26,8 @@ Client.prototype.write = function (sender, message) {
 };
 
 Client.prototype.group = function (name) {
+  if (! this.connection.writable) return;
+
   name = new Buffer(name);
   var bytes = Buffer.concat([GROUP, PREFIX, name, EOL]);
   this.connection.write(bytes);
