@@ -37,4 +37,32 @@ Client.prototype.end = function () {
   this.connection.end();
 };
 
+Client.infect = function (jandal) {
+  var client = new Client();
+
+  // incoming
+  if (! jandal.infected) {
+    var process = jandal._process;
+    jandal._process = function (message) {
+      var sender = 'client:' + jandal.id.slice(0,2);
+      client.write(sender, message);
+      return process.call(jandal, message);
+    };
+    jandal.infected = true;
+  }
+
+  // outgoing
+  if (! jandal._handle.infected) {
+    var write = jandal._handle.write;
+    jandal._handle.write = function (socket, message) {
+      var sender = 'server:' + socket.id.slice(0,2);
+      client.write(sender, message);
+      return write(socket, message);
+    };
+    jandal._handle.infected = true;
+  }
+
+  return client;
+};
+
 module.exports = Client;
