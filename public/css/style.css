@@ -35,6 +35,7 @@ h1 {
 
 .log td, .log th {
   padding: 0 0.9em;
+  vertical-align: top;
 }
 
 .log .group {
