@@ -1,5 +1,5 @@
 {
-  "name": "Jandal-Log",
+  "name": "jandal-log",
   "version": "0.0.1",
   "description": "Get a realtime log of messages passed through Jandal",
   "main": "sandal.js",
