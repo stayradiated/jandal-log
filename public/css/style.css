@@ -1,3 +1,19 @@
+/* http://brick.a.ssl.fastly.net/Source+Code+Pro:400,700:f */ 
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/webfonts/source_code_pro_400.woff) format('woff');
+}
+
+@font-face{
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/webfonts/source_code_pro_700.woff) format('woff');
+}
+
 body {
   font-family: "Source Code Pro", "Monaco", "Consolas", "sans-serif";
 }

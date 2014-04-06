@@ -3,7 +3,7 @@
 var net = require('net');
 var webServer = require('./index');
 
-var PORT = 8800;
+var PORT = 9123;
 
 var indexOf = function (bytes, byte) {
   return Array.prototype.indexOf.call(bytes, byte);
@@ -11,9 +11,13 @@ var indexOf = function (bytes, byte) {
 
 var server = net.createServer(function (connection) {
 
+  console.log('# new connection');
+
   webServer.reset();
 
   connection.on('data', function (bytes) {
+
+    console.log('>', bytes.toString());
 
     var eol;
 

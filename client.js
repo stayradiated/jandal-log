@@ -1,6 +1,6 @@
 var net = require('net');
 
-var PORT = 8800;
+var PORT = 9123;
 
 var Client = function (fn) {
   this.connection = net.connect({ port: PORT }, fn);
@@ -39,6 +39,8 @@ Client.prototype.end = function () {
 
 Client.infect = function (jandal) {
   var client = new Client();
+
+  console.log('infecting');
 
   // incoming
   if (! jandal.infected) {
