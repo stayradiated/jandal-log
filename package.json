@@ -1,6 +1,6 @@
 {
   "name": "jandal-log",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Get a realtime log of messages passed through Jandal",
   "main": "sandal.js",
   "dependencies": {
