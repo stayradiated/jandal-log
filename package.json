@@ -2,19 +2,24 @@
   "name": "jandal-log",
   "version": "0.0.3",
   "description": "Get a realtime log of messages passed through Jandal",
-  "main": "sandal.js",
+  "main": "index.js",
   "dependencies": {
-    "express": "^3.5.1",
+    "dnode": "^1.2.0",
+    "express": "^4.1.0",
     "jandal": "0.0.15",
-    "sockjs": "^0.3.8",
-    "log_": "^0.0.3"
+    "log_": "^0.0.3",
+    "sockjs": "^0.3.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R spec test/"
   },
-  "bin": {
-    "jandal-log": "bin/server.js"
+  "directories": {
+    "bin": "bin",
+    "lib": "lib"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var dnode = require('dnode');
+var webServer = require('../lib/server');
+var config = require('../config');
+
+var server = dnode(webServer);
+
+server.listen(config.dnode_port);
